@@ -6,9 +6,9 @@
 	</head>
 	<body>
 		<audio controls></audio>
-		<p>?sort=网易云热歌榜(默认)/新歌榜/飙升榜/抖音榜/电音榜</p>
-		<p>?mid=网易云歌单id</p>
-		<p>?banana=banana歌曲id/以逗号分割的歌曲id列表/留空</p>
+		<p>?sort=网易云<a href="?">热歌榜</a>(默认)/<a href="?sort=新歌榜">新歌榜</a>/<a href="?sort=飙升榜">飙升榜</a>/<a href="?sort=抖音榜">抖音榜</a>/<a href="?sort=电音榜">电音榜</a> (<a href="?sort=飙升榜">?sort=飙升榜</a>)</p>
+		<p>?mid=网易云歌单id (<a href="?mid=988690134">?mid=988690134</a>)</p>
+		<p>?banana=banana歌曲id/以逗号分割的歌曲id列表/留空 (<a href="?banana">?banana</a>)</p>
 		<script>
 			const audio = document.querySelector('audio')
 			;(audio.onended = async function() {
