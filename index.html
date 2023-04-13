@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
 		<title>随便听听</title>
 	</head>
 	<body>
@@ -16,7 +17,7 @@
 				if ('banana' in search_obj) {
 					let banana_ids
 					if (search_obj.banana) {
-						banana_ids = search_obj.banana.split(',')
+						banana_ids = search_obj.banana.split('[,，]')
 					} else {
 						try {
 							banana_ids = await fetch('songs')
