@@ -17,7 +17,7 @@
 				if ('banana' in search_obj) {
 					let banana_ids
 					if (search_obj.banana) {
-						banana_ids = search_obj.banana.split('[,，]')
+						banana_ids = search_obj.banana.split(/[,，]/)
 					} else {
 						try {
 							banana_ids = await fetch('songs')
