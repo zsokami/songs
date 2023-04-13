@@ -17,14 +17,14 @@
 				if ('banana' in search_obj) {
 					let banana_ids
 					if (search_obj.banana) {
-						banana_ids = search_obj.banana.split(/[,，]/)
+						banana_ids = search_obj.banana.match(/[\da-f]+/gi)
 					} else {
 						try {
 							banana_ids = await fetch('songs')
 						} catch {
 							banana_ids = await fetch('https://raw.kgithub.com/zsokami/songs/main/songs')
 						}
-						banana_ids = await banana_ids.text().then(s => s.split('\n').filter(x => x).map(x => x.split('  ').pop()))
+						banana_ids = await banana_ids.text().then(s => s.split('\n').map(x => x.trim()).filter(x => x).map(x => x.split('  ').pop()))
 					}
 					audio.src = 'https://data.mp3-banana.pro/play-track/' + banana_ids[Math.random() * banana_ids.length | 0]
 				} else {
