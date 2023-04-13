@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>随便听听</title>
+	</head>
+	<body>
+		<audio controls></audio>
+		<p>?sort=网易云热歌榜(默认)/新歌榜/飙升榜/抖音榜/电音榜</p>
+		<p>?mid=网易云歌单id</p>
+		<p>?banana=banana歌曲id/以逗号分割的歌曲id列表/留空</p>
+		<script>
+			const audio = document.querySelector('audio')
+			;(audio.onended = async function() {
+				const search_obj = Object.fromEntries(new URLSearchParams(location.search))
+				if ('banana' in search_obj) {
+					let banana_ids
+					if (search_obj.banana) {
+						banana_ids = search_obj.banana.split(',')
+					} else {
+						try {
+							banana_ids = await fetch('songs')
+						} catch {
+							banana_ids = await fetch('https://raw.kgithub.com/zsokami/songs/main/songs')
+						}
+						banana_ids = await banana_ids.text().then(s => s.split('\n').filter(x => x).map(x => x.split('  ').pop()))
+					}
+					audio.src = 'https://data.mp3-banana.pro/play-track/' + banana_ids[Math.random() * banana_ids.length | 0]
+				} else {
+					audio.src = 'https://api.uomg.com/api/rand.music' + location.search
+				}
+				audio.play()
+			})()
+		</script>
+	</body>
+</html>
