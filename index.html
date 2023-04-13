@@ -19,7 +19,7 @@
 
 			async function play() {
 				const search_obj = Object.fromEntries(new URLSearchParams(location.search))
-				let urls = []
+				const urls = []
 				if ('banana' in search_obj) {
 					let banana_ids
 					if (search_obj.banana) {
@@ -35,7 +35,7 @@
 					urls.push(...banana_ids.map(id => 'https://data.mp3-banana.pro/play-track/' + id))
 				}
 				if (search_obj.netease) {
-					let netease_ids = search_obj.netease.match(/\d+/g)
+					const netease_ids = search_obj.netease.match(/\d+/g)
 					urls.push(...netease_ids.map(id => 'http://music.163.com/song/media/outer/url?id=' + id))
 				}
 				if (urls.length) {
