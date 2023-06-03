@@ -28,7 +28,7 @@
 						try {
 							banana_ids = await fetch('songs')
 						} catch {
-							banana_ids = await fetch('https://zsongs.netlify.app/songs')
+							banana_ids = await fetch('https://songs.gg.td/songs')
 						}
 						banana_ids = await banana_ids.text().then(s => s.split('\n').map(x => x.trim()).filter(x => x).map(x => x.split('  ').pop()))
 					}
