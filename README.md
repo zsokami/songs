@@ -1,6 +1,6 @@
 # 随便听听
 
-- https://songs.gg.td
-- https://songs.gg.td?sort=飙升榜
-- https://songs.gg.td?mid=2884035
-- https://songs.gg.td?banana
+- https://song.me.cd
+- https://song.me.cd?sort=飙升榜
+- https://song.me.cd?mid=2884035
+- https://song.me.cd?banana
